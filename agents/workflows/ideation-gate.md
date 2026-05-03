@@ -30,6 +30,7 @@ Ideation should stay divergent long enough to be useful, then converge into a sh
 1. Frame
    - Orchestrator restates the ideation goal.
    - Orchestrator identifies known constraints, audience, success signals, and open questions.
+   - If top-level ideation notes contain prior task content, Orchestrator archives that content or writes the new ideation into task-specific notes before updating current files.
    - Orchestrator records assumptions in `agents/working-notes/ideation.md`.
 
 2. Diverge
@@ -86,4 +87,3 @@ Assumptions:
 
 ## Recommended Next Mode
 ```
-

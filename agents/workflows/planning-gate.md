@@ -24,11 +24,13 @@ Planning mode is heavier on Orchestrator activity, user clarification, scope con
 
 2. Specification
    - Orchestrator writes or updates `agents/working-notes/specification.md`.
+   - If top-level working notes contain prior task content, Orchestrator archives that content or writes the new plan into task-specific notes before updating current files.
    - Architect contributes design constraints, architectural risks, system boundaries, and decision points when needed.
    - Tester/QA contributes acceptance criteria and validation expectations.
 
 3. Task Decomposition
    - Orchestrator writes or updates `agents/working-notes/task-list.md`.
+   - For durable history, Orchestrator links or mirrors current top-level files to task-specific notes when the task is likely to span agents, turns, or dependent implementation work.
    - Break work into epics, tasks, dependencies, owners, files or modules, and integration checkpoints.
    - Mark tasks that need Architect, Developer, Reviewer, or Tester/QA involvement.
 
@@ -63,4 +65,3 @@ Ask the user before finalizing the plan when:
 - A design, architecture, or data decision changes scope or risk.
 - External credentials, APIs, environments, or deployment targets are required.
 - Security, privacy, migration, compatibility, or rollback expectations are unclear.
-

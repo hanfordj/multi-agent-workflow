@@ -26,6 +26,9 @@ Maintain durable shared state in `agents/working-notes/` for project-scale work.
 
 1. Intake
    - Orchestrator summarizes the request.
+   - Orchestrator reads existing planning artifacts when present, including `agents/working-notes/specification.md`, `agents/working-notes/task-list.md`, `agents/working-notes/task-state.md`, and any task-specific working notes referenced by those files.
+   - Orchestrator reconciles the current `[GO]` prompt with the prior plan, acceptance criteria, task status, decisions, blockers, and open questions.
+   - If the prompt refers to planned work but the needed planning artifacts are missing or stale, Orchestrator pauses to ask for clarification or reconstructs the missing context before decomposition would become guesswork.
    - Orchestrator extracts acceptance criteria.
    - Orchestrator identifies constraints, unknowns, and likely files or systems.
 

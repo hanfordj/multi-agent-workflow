@@ -169,6 +169,8 @@ If test-first work is not practical for a task, the exception should be document
 
 The multi-agent workflow uses `agents/working-notes/` to keep important context available across agents and later review.
 
+Top-level working-note files can represent the current task or serve as templates. For durable task history, create task-specific files or directories and avoid silently overwriting substantive notes from completed work.
+
 Common files:
 
 - `ideation.md`: ideation goal, audience, constraints, assumptions, themes, notes, and open questions.

@@ -8,6 +8,13 @@ Use the ideation workflow when the user's prompt includes the exact tag `[GO:ide
 
 Use the planning workflow when the user's prompt includes the exact tag `[GO:plan]` or when the current session is explicitly running in Plan mode.
 
+If the user's prompt includes more than one exact activation tag among `[GO]`, `[GO:idea]`, and `[GO:plan]`:
+
+- Do not activate any workflow yet.
+- Have the Orchestrator ask the user which single mode to use.
+- Name the detected tags and briefly explain the mode choice needed.
+- Continue only after the user clarifies the intended mode.
+
 If none of `[GO]`, `[GO:idea]`, or `[GO:plan]` is present, and the session is not running in Plan mode:
 
 - Do not invoke or simulate the multi-agent workflow.

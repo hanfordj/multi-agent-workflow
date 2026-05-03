@@ -4,6 +4,12 @@ Use this directory for important working information that should remain reviewab
 
 These notes are shared across agents. They should help later agents or a human understand what happened, why decisions were made, and what remains uncertain.
 
+## Task-Scoped History
+
+Top-level files such as `specification.md`, `task-list.md`, and `task-state.md` may be used as current working files or templates. Do not silently overwrite substantive notes from a previous task.
+
+When a task needs durable history, create task-specific files or a task-specific directory with a clear name, such as `2026-05-02-auth-refactor.md` or `2026-05-02-auth-refactor/specification.md`. Before replacing a top-level current file that contains useful completed work, archive it into a task-specific note or link to the task-specific record.
+
 ## Suggested Files
 
 - `ideation.md`: ideation goal, audience, constraints, assumptions, themes, notes, and open questions.
@@ -16,8 +22,6 @@ These notes are shared across agents. They should help later agents or a human u
 - `architectural-decisions.md`: key architectural decision briefs.
 - `review-notes.md`: review findings, responses, and unresolved concerns.
 - `qa-notes.md`: pre-implementation test plan, test harness notes, validation checklist, commands run, outcomes, feedback loops, and remaining test gaps.
-
-Create task-specific files when a task needs more detail, using clear names such as `2026-05-02-auth-refactor.md`.
 
 ## Ideation Notes
 
