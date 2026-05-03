@@ -16,6 +16,12 @@ Use `[GO:plan]` when you want a planning pass before implementation:
 [GO:plan] Build a user profile settings page with email preferences, avatar upload, and account deletion.
 ```
 
+Use `[GO:idea]` when you want to explore possibilities before planning:
+
+```text
+[GO:idea] Explore ways this framework could support product discovery and software delivery.
+```
+
 Use `[GO]` when you want the multi-agent implementation workflow:
 
 ```text
@@ -28,9 +34,21 @@ The activation rules live in `AGENTS.md`.
 
 ### Default Mode
 
-If a prompt does not include `[GO]` or `[GO:plan]`, the assistant should work as a normal single coding agent. The multi-agent workflow should not activate automatically.
+If a prompt does not include `[GO]`, `[GO:idea]`, or `[GO:plan]`, the assistant should work as a normal single coding agent. The multi-agent workflow should not activate automatically.
 
 Use this for small edits, quick questions, focused fixes, or anything that does not need orchestration.
+
+### Ideation Mode: `[GO:idea]`
+
+Use `[GO:idea]` when you want divergent thinking before planning. This mode explores options, critiques assumptions, considers user/customer perspective, and synthesizes promising directions.
+
+Ideation mode should produce:
+
+- `agents/working-notes/ideation.md`
+- `agents/working-notes/options.md`
+- `agents/working-notes/decision-candidates.md`
+
+Use this when you are asking “what could we do?” rather than “what exactly should we build?”
 
 ### Planning Mode: `[GO:plan]`
 
@@ -68,6 +86,16 @@ The implementation flow is:
 
 The detailed workflow is in `agents/workflows/multi-agent-coding.md`.
 
+## Mode Outputs
+
+| Mode | Tag | Use It For | Primary Output | Next Step |
+| --- | --- | --- | --- | --- |
+| Ideation | `[GO:idea]` | Exploring possibilities, alternatives, rough concepts, and tradeoffs. | Themes, options, critiques, candidate directions, and open questions. | Move a candidate to `[GO:plan]`. |
+| Planning | `[GO:plan]` | Turning a direction into a specification and task list. | Specification, task list, dependencies, acceptance criteria, and risks. | Use `[GO]` when ready to build. |
+| Implementation | `[GO]` | Building, testing, reviewing, and delivering. | Code changes, test results, review status, release readiness, and final synthesis. | Deliver, or return to `[GO:plan]` if scope changes. |
+
+For the short version, see `agents/mode-outputs.md`.
+
 ## Agent Roles
 
 ### Orchestrator
@@ -87,6 +115,30 @@ Persona file: `agents/personas/architect.md`
 Drives the test-first workflow. Tester/QA defines test cases, harnesses, fixtures, expected failures, and validation checks before production implementation begins where possible. After implementation, Tester/QA runs tests and sends feedback back to the Developer when changes are needed.
 
 Persona file: `agents/personas/tester-qa.md`
+
+### Explorer
+
+Generates broad possibilities, alternatives, variants, and adjacent ideas during ideation.
+
+Persona file: `agents/personas/explorer.md`
+
+### Critic
+
+Pressure-tests ideas for weak assumptions, risks, hidden costs, feasibility issues, and failure modes.
+
+Persona file: `agents/personas/critic.md`
+
+### Synthesizer
+
+Groups ideas into themes, identifies candidate directions, and recommends whether to continue ideating or move into planning.
+
+Persona file: `agents/personas/synthesizer.md`
+
+### User Advocate
+
+Evaluates ideas from the perspective of users, customers, operators, or stakeholders.
+
+Persona file: `agents/personas/user-advocate.md`
 
 ### Developer
 
@@ -119,6 +171,9 @@ The multi-agent workflow uses `agents/working-notes/` to keep important context 
 
 Common files:
 
+- `ideation.md`: ideation goal, audience, constraints, assumptions, themes, notes, and open questions.
+- `options.md`: options generated during ideation.
+- `decision-candidates.md`: synthesized candidate directions from ideation.
 - `specification.md`: planning output, requirements, scope, acceptance criteria, risks, and open questions.
 - `task-list.md`: task breakdown, dependencies, owners, statuses, files or areas, and next actions.
 - `task-state.md`: current durable orchestration state for active multi-agent work.
@@ -143,6 +198,7 @@ Edit activation rules:
 
 Edit workflows:
 
+- `agents/workflows/ideation-gate.md`
 - `agents/workflows/planning-gate.md`
 - `agents/workflows/multi-agent-coding.md`
 
@@ -153,6 +209,10 @@ Edit personas:
 - `agents/personas/developer.md`
 - `agents/personas/reviewer.md`
 - `agents/personas/tester-qa.md`
+- `agents/personas/explorer.md`
+- `agents/personas/critic.md`
+- `agents/personas/synthesizer.md`
+- `agents/personas/user-advocate.md`
 
 Edit shared note templates:
 
@@ -166,6 +226,8 @@ Edit model selection policy:
 
 For a small task, skip the tags and work normally.
 
-For a medium or large feature, start with `[GO:plan]`. Review the generated specification and task list, answer open questions, then use `[GO]` when the plan is ready for implementation.
+For an unclear opportunity or early product thought, start with `[GO:idea]`. Pick a promising candidate direction, then move into `[GO:plan]`.
+
+For a medium or large feature with a clear direction, start with `[GO:plan]`. Review the generated specification and task list, answer open questions, then use `[GO]` when the plan is ready for implementation.
 
 For risky changes, migrations, cross-module refactors, security-sensitive work, or anything with unclear acceptance criteria, prefer `[GO:plan]` first. The extra planning pass gives the agents a shared target and leaves a written record a human can inspect later.

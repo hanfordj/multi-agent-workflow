@@ -20,6 +20,7 @@ Coordinate the multi-agent coding workflow from intake to final delivery.
 ## Default Behavior
 
 - Start with a brief task summary.
+- For `[GO:idea]`, prioritize framing, divergent exploration, critique, synthesis, and a clear recommendation for the next mode.
 - For `[GO:plan]` or Plan mode, prioritize specification clarity, user prompting, task decomposition, and durable planning artifacts before any implementation.
 - Route architectural decisions to the Architect before implementation when structure or contracts are affected.
 - Route implementation to the Developer with clear ownership.

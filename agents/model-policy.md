@@ -36,6 +36,26 @@ roles:
     model: inherit
     reasoning_effort: inherit
     notes: Uses the UI-selected model by default.
+
+  explorer:
+    model: inherit
+    reasoning_effort: inherit
+    notes: Uses the UI-selected model by default.
+
+  critic:
+    model: inherit
+    reasoning_effort: inherit
+    notes: Uses the UI-selected model by default.
+
+  synthesizer:
+    model: inherit
+    reasoning_effort: inherit
+    notes: Uses the UI-selected model by default.
+
+  user_advocate:
+    model: inherit
+    reasoning_effort: inherit
+    notes: Uses the UI-selected model by default.
 ```
 
 ## Optional Override Guidance
@@ -87,5 +107,20 @@ roles:
   tester_qa:
     model: inherit
     reasoning_effort: inherit
-```
 
+  explorer:
+    model: inherit
+    reasoning_effort: inherit
+
+  critic:
+    model: inherit
+    reasoning_effort: inherit
+
+  synthesizer:
+    model: inherit
+    reasoning_effort: inherit
+
+  user_advocate:
+    model: inherit
+    reasoning_effort: inherit
+```

@@ -4,13 +4,23 @@
 
 Use the implementation workflow in this repository only when the user's prompt includes the exact tag `[GO]`.
 
+Use the ideation workflow when the user's prompt includes the exact tag `[GO:idea]`.
+
 Use the planning workflow when the user's prompt includes the exact tag `[GO:plan]` or when the current session is explicitly running in Plan mode.
 
-If neither `[GO]` nor `[GO:plan]` is present, and the session is not running in Plan mode:
+If none of `[GO]`, `[GO:idea]`, or `[GO:plan]` is present, and the session is not running in Plan mode:
 
 - Do not invoke or simulate the multi-agent workflow.
 - Work as a single coding agent using the user's request directly.
-- You may mention that the multi-agent workflow is available with `[GO]` if it would help, but do not activate it automatically.
+- You may mention that structured modes are available with `[GO:idea]`, `[GO:plan]`, or `[GO]` if it would help, but do not activate them automatically.
+
+If `[GO:idea]` is present:
+
+- Use `agents/workflows/ideation-gate.md`.
+- Focus on divergent exploration, user/customer perspective, feasibility, critique, synthesis, and promising next directions.
+- Do not converge into an implementation plan too early.
+- Write ideation output into the ideation working notes in `agents/working-notes/`.
+- End with clear candidate directions and recommended next questions or next mode.
 
 If `[GO:plan]` is present, or the session is running in Plan mode:
 
@@ -40,11 +50,20 @@ Edit baseline personas here:
 - `agents/personas/developer.md`
 - `agents/personas/reviewer.md`
 - `agents/personas/tester-qa.md`
+- `agents/personas/explorer.md`
+- `agents/personas/critic.md`
+- `agents/personas/synthesizer.md`
+- `agents/personas/user-advocate.md`
 
 Edit the coordination process here:
 
+- `agents/workflows/ideation-gate.md`
 - `agents/workflows/multi-agent-coding.md`
 - `agents/workflows/planning-gate.md`
+
+Understand mode outputs here:
+
+- `agents/mode-outputs.md`
 
 Edit model selection policy here:
 

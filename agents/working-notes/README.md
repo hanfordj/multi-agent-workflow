@@ -6,6 +6,9 @@ These notes are shared across agents. They should help later agents or a human u
 
 ## Suggested Files
 
+- `ideation.md`: ideation goal, audience, constraints, assumptions, themes, notes, and open questions.
+- `options.md`: option set generated during ideation.
+- `decision-candidates.md`: synthesized candidate directions and recommended next mode.
 - `specification.md`: user-facing specification, scope, requirements, non-goals, acceptance criteria, and open questions.
 - `task-list.md`: task breakdown, dependencies, ownership, status, and next actions.
 - `task-state.md`: durable orchestration state for active multi-agent work.
@@ -15,6 +18,50 @@ These notes are shared across agents. They should help later agents or a human u
 - `qa-notes.md`: pre-implementation test plan, test harness notes, validation checklist, commands run, outcomes, feedback loops, and remaining test gaps.
 
 Create task-specific files when a task needs more detail, using clear names such as `2026-05-02-auth-refactor.md`.
+
+## Ideation Notes
+
+Use this structure for `[GO:idea]` output:
+
+```text
+# Ideation
+
+## Goal
+
+## Audience
+
+## Constraints
+
+## Assumptions
+
+## Themes
+
+## Notes
+
+## Open Questions
+```
+
+## Options
+
+Use this structure for options generated during `[GO:idea]`:
+
+```text
+# Options
+
+| ID | Option | Summary | Strengths | Risks | Assumptions | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
+```
+
+## Decision Candidates
+
+Use this structure for synthesized candidate directions from `[GO:idea]`:
+
+```text
+# Decision Candidates
+
+| ID | Candidate Direction | Why It Is Promising | Tradeoffs | Open Questions | Recommended Next Mode |
+| --- | --- | --- | --- | --- | --- |
+```
 
 ## Specification Document
 
